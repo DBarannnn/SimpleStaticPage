@@ -3,13 +3,17 @@
 echo "🚀 Quick build and run for ГМК Student Portal"
 echo ""
 
-# Build the image
-echo "🔨 Building Docker image..."
-docker build -t gmk-student-portal .
+# Build the image with no cache to include latest changes
+echo "🔨 Building Docker image (with latest changes)..."
+docker build --no-cache -t gmk-student-portal .
 
 if [ $? -eq 0 ]; then
     echo "✅ Build successful!"
     echo ""
+    
+    # Stop existing container if running
+    echo "🛑 Stopping existing container..."
+    docker-compose down 2>/dev/null || true
     
     # Start with docker-compose
     echo "🏃 Starting application..."
