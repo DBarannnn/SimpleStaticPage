@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  student-portal:
+    build: .
+    container_name: gmk-student-portal
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Kiev
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.student-portal.rule=Host(`student-portal.local`)"
+      - "traefik.http.services.student-portal.loadbalancer.server.port=80"

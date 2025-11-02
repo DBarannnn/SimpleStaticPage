@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГМК - Студентський портал</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <h1 class="title">ГМК</h1>
+                <span class="subtitle">студентський портал</span>
+            </div>
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Nulp_logo_ukr.svg" alt="Lviv Polytechnic Logo" class="university-logo">
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <button class="nav-btn active" data-page="time">Час</button>
+            <button class="nav-btn" data-page="schedule">Розклад</button>
+            <button class="nav-btn" data-page="services">Сервіси</button>
+            <button class="nav-btn" data-page="links">Посилання</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Time Page -->
+            <div class="page active" id="page-time">
+                <div class="time-display">
+                    <div class="current-time">09:21:45</div>
+                    <div class="time-subtitle">До кінця пари 45 хв</div>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="schedule-item">
+                        <span class="period-number">1.</span>
+                        <span class="time-range">8:30 - 9:50</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="period-number">2.</span>
+                        <span class="time-range">10:05 - 11:25</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="period-number">3.</span>
+                        <span class="time-range">11:40 - 13:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="period-number">4.</span>
+                        <span class="time-range">13:15 - 14:35</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="period-number">5.</span>
+                        <span class="time-range">14:50 - 16:10</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="period-number">6.</span>
+                        <span class="time-range">16:25 - 17:45</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="period-number">7.</span>
+                        <span class="time-range">18:00 - 19:20</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="period-number">8.</span>
+                        <span class="time-range">19:30 - 20:50</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Page -->
+            <div class="page" id="page-schedule">
+                <h2 class="page-title">Розклад</h2>
+                
+                <!-- Group Selector and Filters -->
+                <div class="schedule-controls">
+                    <div class="group-selector">
+                        <label>Група:</label>
+                        <div class="group-input">
+                            <input type="text" value="Дз-33г1" readonly>
+                            <button class="settings-btn">⚙️</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button class="filter-btn">Під голоском: Г19</button>
+                        <button class="filter-btn">Підвальна: П17</button>
+                        <button class="filter-btn">Личаківська: Л3</button>
+                        <button class="filter-btn">Винниченка: В12</button>
+                    </div>
+                    
+                    <div class="schedule-actions">
+                        <button class="action-btn active" data-week="numerator">Чисельник</button>
+                        <button class="action-btn" data-week="denominator">Знаменник</button>
+                    </div>
+                </div>
+
+                <!-- Weekly Schedule -->
+                <!-- Numerator Schedule -->
+                <div class="weekly-schedule" id="numerator-schedule">
+                    <!-- Monday -->
+                    <div class="day-section">
+                        <h3 class="day-title">Понеділок</h3>
+                        <div class="classes-list">
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">10:05</span>
+                                    <span class="time-end">11:25</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Рукописні та друкарські шрифти</div>
+                                    <div class="teacher">Стемпіцька Юлія Сергіївна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">50каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">11:40</span>
+                                    <span class="time-end">13:00</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Рисунок</div>
+                                    <div class="teacher">Ропецький Володимир Адамович</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">45каб</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tuesday -->
+                    <div class="day-section">
+                        <h3 class="day-title">Вівторок</h3>
+                        <div class="classes-list">
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">8:30</span>
+                                    <span class="time-end">9:50</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Рисунок</div>
+                                    <div class="teacher">Ропецький Володимир Адамович</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">45каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">10:05</span>
+                                    <span class="time-end">11:25</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Технологія видав. поліграф. справи</div>
+                                    <div class="teacher">Голубник Т. С., Мартинюк М. С.</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">Г19</span>
+                                    <span class="room-number">131каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">11:40</span>
+                                    <span class="time-end">13:00</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Рукописні та друкарські шрифти</div>
+                                    <div class="teacher">Стемпіцька Юлія Сергіївна </div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">58каб</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wednesday -->
+                    <div class="day-section">
+                        <h3 class="day-title">Середа</h3>
+                        <div class="classes-list">
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">10:05</span>
+                                    <span class="time-end">11:25</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Концепт.  дизайн середовища</div>
+                                    <div class="teacher">Кульчицький С</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">31каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">11:40</span>
+                                    <span class="time-end">13:00</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Анімаційні технології</div>
+                                    <div class="teacher">Новосад Олеся Євгенівна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">50каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">13:15</span>
+                                    <span class="time-end">14:35</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Анімаційні технології</div>
+                                    <div class="teacher">Новосад Олеся Євгенівна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">50каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">14:50</span>
+                                    <span class="time-end">16:10</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Анімаційні технології</div>
+                                    <div class="teacher">Новосад Олеся Євгенівна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">50каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">16:25</span>
+                                    <span class="time-end">17:45</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Анімаційні технології</div>
+                                    <div class="teacher">Новосад Олеся Євгенівна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">50каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">18:00</span>
+                                    <span class="time-end">19:20</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Web-дизайн</div>
+                                    <div class="teacher">Марціян Яців</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">В12</span>
+                                    <span class="room-number">12каб</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thursday -->
+                    <div class="day-section">
+                        <h3 class="day-title">Четвер</h3>
+                        <div class="classes-list">
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">8:30</span>
+                                    <span class="time-end">9:50</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Реставрація друкованих видань</div>
+                                    <div class="teacher">Кульчицький</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">Г19</span>
+                                    <span class="room-number">125каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">10:05</span>
+                                    <span class="time-end">11:25</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Реставрація друкованих видань</div>
+                                    <div class="teacher">Криховець Олександра Василівна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">Г19</span>
+                                    <span class="room-number">125каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">11:40</span>
+                                    <span class="time-end">13:00</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Реставрація друкованих видань</div>
+                                    <div class="teacher">Криховець Олександра Василівна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">Г19</span>
+                                    <span class="room-number">125каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">13:15</span>
+                                    <span class="time-end">14:35</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Web-дизайн</div>
+                                    <div class="teacher">Яців М.Р.</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">В12</span>
+                                    <span class="room-number">12каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">14:50</span>
+                                    <span class="time-end">16:10</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Web-дизайн</div>
+                                    <div class="teacher">Яців М.Р.</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">В12</span>
+                                    <span class="room-number">12каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">16:25</span>
+                                    <span class="time-end">17:45</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Концепт. дизайн середовища</div>
+                                    <div class="teacher">Кульчицький Антоній Дмитрович</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">33каб</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Friday -->
+                    <div class="day-section">
+                        <h3 class="day-title">П'ятниця</h3>
+                        <div class="classes-list">
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">8:30</span>
+                                    <span class="time-end">9:50</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Рисунок</div>
+                                    <div class="teacher">Ропецький Володимир Адамович</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">45каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">10:05</span>
+                                    <span class="time-end">11:25</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Технологія видав. поліграф. справи</div>
+                                    <div class="teacher">Голубник Т. С., Мартинюк М. С.</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">Г19</span>
+                                    <span class="room-number">131каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">11:40</span>
+                                    <span class="time-end">13:00</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Рукописні та друкарські шрифти </div>
+                                    <div class="teacher">Стемпіцька Юлія Сергіївна </div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">58каб</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Denominator Schedule -->
+                <div class="weekly-schedule" id="denominator-schedule" style="display: none;">
+                    <!-- Monday -->
+                    <div class="day-section">
+                        <h3 class="day-title">Понеділок</h3>
+                        <div class="classes-list">
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">10:05</span>
+                                    <span class="time-end">11:25</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Конструювання, оформлення друк. продук.</div>
+                                    <div class="teacher">Федір Лукавий</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">50каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">11:40</span>
+                                    <span class="time-end">13:00</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Комунікативний дизайн</div>
+                                    <div class="teacher">Борисенко Ольга</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">31каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">13:15</span>
+                                    <span class="time-end">14:35</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Комунікативний дизайн</div>
+                                    <div class="teacher">Борисенко Ольга</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">31каб</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tuesday -->
+                    <div class="day-section">
+                        <h3 class="day-title">Вівторок</h3>
+                        <div class="classes-list">
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">10:05</span>
+                                    <span class="time-end">11:25</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Концепт.  дизайн середовища</div>
+                                    <div class="teacher">Кульчицький</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">31каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">11:40</span>
+                                    <span class="time-end">13:00</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Анімаційні технології</div>
+                                    <div class="teacher">Новосад Олеся Євгенівна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">50каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">13:15</span>
+                                    <span class="time-end">14:35</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Анімаційні технології</div>
+                                    <div class="teacher">Новосад Олеся Євгенівна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">50каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">14:50</span>
+                                    <span class="time-end">16:10</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Анімаційні технології</div>
+                                    <div class="teacher">Новосад Олеся Євгенівна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">50каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">16:25</span>
+                                    <span class="time-end">17:45</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Анімаційні технології</div>
+                                    <div class="teacher">Новосад Олеся Євгенівна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">50каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">18:00</span>
+                                    <span class="time-end">19:20</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Web-дизайн</div>
+                                    <div class="teacher">Марціян Яців</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">В12</span>
+                                    <span class="room-number">12каб</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wednesday -->
+                    <div class="day-section">
+                        <h3 class="day-title">Середа</h3>
+                        <div class="classes-list">
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">8:30</span>
+                                    <span class="time-end">9:50</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Рисунок</div>
+                                    <div class="teacher">Ропецький Володимир Адамович</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">45каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">10:05</span>
+                                    <span class="time-end">11:25</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Технологія видав. поліграф. справи</div>
+                                    <div class="teacher">Голубник Т. С., Мартинюк М. С.</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">Г19</span>
+                                    <span class="room-number">131каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">11:40</span>
+                                    <span class="time-end">13:00</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Рукописні та друкарські шрифти</div>
+                                    <div class="teacher">Стемпіцька Юлія Сергіївна</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">58каб</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thursday -->
+                    <div class="day-section">
+                        <h3 class="day-title">Четвер</h3>
+                        <div class="classes-list">
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">10:05</span>
+                                    <span class="time-end">11:25</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Конcтруювання, оформлення друк. продук.</div>
+                                    <div class="teacher">Федір Лукавий</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">50каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">11:40</span>
+                                    <span class="time-end">13:00</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Комунікативний дизайн</div>
+                                    <div class="teacher">Борисенко Ольга</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">31каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">13:15</span>
+                                    <span class="time-end">14:35</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Комунікативний дизайн</div>
+                                    <div class="teacher">Борисенко Ольга</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">31каб</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Friday -->
+                    <div class="day-section">
+                        <h3 class="day-title">П'ятниця</h3>
+                        <div class="classes-list">
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">8:30</span>
+                                    <span class="time-end">9:50</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Реставрація друкованих видань</div>
+                                    <div class="teacher">Кульчицький</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">Г19</span>
+                                    <span class="room-number">125каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">10:05</span>
+                                    <span class="time-end">11:25</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Реставрація друкованих видань</div>
+                                    <div class="teacher">Криховець Олександра Василівна </div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">Г19</span>
+                                    <span class="room-number">125каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">11:40</span>
+                                    <span class="time-end">13:00</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Реставрація друкованих видань</div>
+                                    <div class="teacher">Криховець Олександра Василівна </div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">Г19</span>
+                                    <span class="room-number">125каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">13:15</span>
+                                    <span class="time-end">14:35</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Web-дизайн</div>
+                                    <div class="teacher">Яців М. Р.</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">В12</span>
+                                    <span class="room-number">12каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">14:50</span>
+                                    <span class="time-end">16:10</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Web-дизайн</div>
+                                    <div class="teacher">Яців М. Р.</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">В12</span>
+                                    <span class="room-number">12каб</span>
+                                </div>
+                            </div>
+                            
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time-start">16:25</span>
+                                    <span class="time-end">17:45</span>
+                                </div>
+                                <div class="class-details">
+                                    <div class="subject">Концепт. дизайн середовища</div>
+                                    <div class="teacher">Кульчицький Антоній Дмитрович</div>
+                                </div>
+                                <div class="class-room">
+                                    <span class="room-type">П17</span>
+                                    <span class="room-number">33каб</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Page -->
+            <div class="page" id="page-services">
+                <h2 class="page-title">Сервіси</h2>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🌐</div>
+                        <div class="service-content">
+                            <h3 class="service-title">Офіційний сайт:</h3>
+                            <a href=" https://lpnu.ua/hmk" target="_blank" class="service-link">
+                                 https://lpnu.ua/hmk
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">👨‍🎓</div>
+                        <div class="service-content">
+                            <h3 class="service-title">Кабінет студента:</h3>
+                            <a href="https://student.lpnu.ua/" target="_blank" class="service-link">
+                                https://student.lpnu.ua/
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🎓</div>
+                        <div class="service-content">
+                            <h3 class="service-title">Сайт ВНС:</h3>
+                            <a href="https://vns.lpnu.ua/my/" target="_blank" class="service-link">
+                                https://vns.lpnu.ua/my/
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">📧</div>
+                        <div class="service-content">
+                            <h3 class="service-title">Пошта Google:</h3>
+                            <a href="http://mail.gmu.ua/" target="_blank" class="service-link">
+                                http://mail.gmu.ua/
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🔒</div>
+                        <div class="service-content">
+                            <h3 class="service-title">Зміна паролю:</h3>
+                            <a href="https://career.gmu.ua/" target="_blank" class="service-link">
+                                https://career.gmu.ua/
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="service-card">
+                        <div class="service-icon">📸</div>
+                        <div class="service-content">
+                            <h3 class="service-title">Інстаграм сторінка:</h3>
+                            <a href="https://students.gmu.ua/" target="_blank" class="service-link">
+                                lpnu_official
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Links Page -->
+            <div class="page" id="page-links">
+                <h2 class="page-title">Посилання</h2>
+                
+                <div class="links-sections">
+                    <!-- Training Section -->
+                    <div class="links-section">
+                        <div class="section-header">
+                            <div class="section-icon">🎓</div>
+                            <h3 class="section-title">Тренування</h3>
+                        </div>
+                        <div class="section-content">
+                            <p class="section-description">Як заходити документами в ВНС / МІП</p>
+                            <div class="links-list">
+                                <a href="https://docs.google.com/document/d/training1" target="_blank" class="resource-link">
+                                    <span class="link-icon">📄</span>
+                                    <span class="link-text">Інструкція з документообігу</span>
+                                </a>
+                                <a href="https://video.tutorial.ua/vns-guide" target="_blank" class="resource-link">
+                                    <span class="link-icon">🎥</span>
+                                    <span class="link-text">Відео-інструкція ВНС</span>
+                                </a>
+                                <a href="https://help.gmu.ua/mip-guide" target="_blank" class="resource-link">
+                                    <span class="link-icon">📋</span>
+                                    <span class="link-text">Керівництво МІП</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Student Work Section -->
+                    <div class="links-section">
+                        <div class="section-header">
+                            <div class="section-icon">💼</div>
+                            <h3 class="section-title">Студ. роботи</h3>
+                        </div>
+                        <div class="section-content">
+                            <p class="section-description">Магістерські дипломи</p>
+                            <p class="section-description">Дипломні роботи магістрів</p>
+                            <div class="links-list">
+                                <a href="https://repository.gmu.ua/masters" target="_blank" class="resource-link">
+                                    <span class="link-icon">🎓</span>
+                                    <span class="link-text">Репозиторій магістерських робіт</span>
+                                </a>
+                                <a href="https://diploma.gmu.ua/examples" target="_blank" class="resource-link">
+                                    <span class="link-icon">📚</span>
+                                    <span class="link-text">Приклади дипломних робіт</span>
+                                </a>
+                                <a href="https://standards.gmu.ua/diploma" target="_blank" class="resource-link">
+                                    <span class="link-icon">📐</span>
+                                    <span class="link-text">Стандарти оформлення</span>
+                                </a>
+                                <a href="https://templates.gmu.ua/thesis" target="_blank" class="resource-link">
+                                    <span class="link-icon">📄</span>
+                                    <span class="link-text">Шаблони документів</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Parent Directory Section -->
+                    <div class="links-section">
+                        <div class="section-header">
+                            <div class="section-icon">📁</div>
+                            <h3 class="section-title">Дні відкритих дверей</h3>
+                        </div>
+                        <div class="section-content">
+                            <p class="section-description">У рішенні з поступком листом 2024 до</p>
+                            <p class="section-description">зрушень магістерської класу 2025.05</p>
+                            <div class="links-list">
+                                <a href="https://openday.gmu.ua/2024" target="_blank" class="resource-link">
+                                    <span class="link-icon">🚪</span>
+                                    <span class="link-text">День відкритих дверей 2024</span>
+                                </a>
+                                <a href="https://admission.gmu.ua/masters" target="_blank" class="resource-link">
+                                    <span class="link-icon">📝</span>
+                                    <span class="link-text">Вступ до магістратури</span>
+                                </a>
+                                <a href="https://events.gmu.ua/upcoming" target="_blank" class="resource-link">
+                                    <span class="link-icon">📅</span>
+                                    <span class="link-text">Майбутні заходи</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Resources Section -->
+                    
+
+                    <!-- Quick Access Section -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
