@@ -80,18 +80,15 @@ document.addEventListener('DOMContentLoaded', function() {
     updateTime();
     setInterval(updateTime, 1000);
 
-    // Add some interactive effects
+    // Minimal interactive effects
     const scheduleItems = document.querySelectorAll('.schedule-item');
     scheduleItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
-            this.style.backgroundColor = 'rgba(107, 115, 255, 0.1)';
-            this.style.transform = 'translateX(5px)';
-            this.style.transition = 'all 0.3s ease';
+            this.style.backgroundColor = '#f0f0f0';
         });
         
         item.addEventListener('mouseleave', function() {
-            this.style.backgroundColor = 'transparent';
-            this.style.transform = 'translateX(0)';
+            this.style.backgroundColor = '';
         });
     });
 
@@ -102,13 +99,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Filter button interactions
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Add pulse effect
-            this.style.transform = 'scale(0.95)';
+            // Basic click feedback
+            this.style.backgroundColor = '#d0d0d0';
             setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 150);
+                this.style.backgroundColor = '';
+            }, 100);
             
-            // Here you could add actual filtering logic
             console.log('Filter clicked:', this.textContent);
         });
     });
@@ -154,8 +150,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const endTime = endHour * 60 + endMin;
             
             if (currentTime >= startTime && currentTime <= endTime) {
-                item.style.borderLeft = '4px solid #00ff88';
-                item.style.background = 'linear-gradient(90deg, rgba(0, 255, 136, 0.1) 0%, rgba(255, 255, 255, 1) 100%)';
+                item.style.borderLeft = '3px solid #000';
+                item.style.background = '#efefef';
             }
         });
     }
@@ -165,195 +161,28 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(highlightCurrentClass, 60000);
 
     // Services page functionality
-    const serviceCards = document.querySelectorAll('.service-card');
     const serviceLinks = document.querySelectorAll('.service-link');
-
-    // Service card interactions
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            // Add subtle animation to other cards
-            serviceCards.forEach(otherCard => {
-                if (otherCard !== this) {
-                    otherCard.style.opacity = '0.7';
-                }
-            });
-        });
-
-        card.addEventListener('mouseleave', function() {
-            // Reset all cards
-            serviceCards.forEach(otherCard => {
-                otherCard.style.opacity = '1';
-            });
-        });
-    });
 
     // Service link click tracking
     serviceLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            // Add click animation
-            this.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-
-            // Log click for analytics (optional)
             console.log('Service link clicked:', this.href);
-            
-            // Add ripple effect
-            const ripple = document.createElement('div');
-            ripple.style.cssText = `
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(107, 115, 255, 0.3);
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                pointer-events: none;
-            `;
-            
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-            ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-            
-            this.style.position = 'relative';
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
         });
     });
 
-    // Add CSS animation for ripple effect
-    if (!document.getElementById('ripple-style')) {
-        const style = document.createElement('style');
-        style.id = 'ripple-style';
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    }
 
-    // Add staggered entrance animation for service cards
-    function animateServiceCards() {
-        const cards = document.querySelectorAll('#page-services .service-card');
-        cards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-                card.style.transition = 'all 0.5s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, index * 100);
-        });
-    }
-
-    // Trigger animation when services page is shown
-    const servicesNavBtn = document.querySelector('[data-page="services"]');
-    if (servicesNavBtn) {
-        servicesNavBtn.addEventListener('click', function() {
-            setTimeout(animateServiceCards, 100);
-        });
-    }
 
     // Links page functionality
-    const linkSections = document.querySelectorAll('.links-section');
     const resourceLinks = document.querySelectorAll('.resource-link');
-    const quickLinks = document.querySelectorAll('.quick-link');
-
-    // Links section animations
-    linkSections.forEach(section => {
-        section.addEventListener('mouseenter', function() {
-            // Add subtle glow effect
-            this.style.boxShadow = '0 8px 25px rgba(107, 115, 255, 0.15)';
-        });
-
-        section.addEventListener('mouseleave', function() {
-            // Reset glow effect
-            this.style.boxShadow = '';
-        });
-    });
 
     // Resource link interactions
     resourceLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            // Add click feedback
-            this.style.transform = 'translateX(2px) scale(0.98)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-
-            // Log click for analytics
             console.log('Resource link clicked:', this.href);
         });
-
-        // Add loading state on click
-        link.addEventListener('mousedown', function() {
-            const icon = this.querySelector('.link-icon');
-            const originalIcon = icon.textContent;
-            icon.textContent = '⏳';
-            
-            setTimeout(() => {
-                icon.textContent = originalIcon;
-            }, 1000);
-        });
     });
 
-    // Quick link interactions
-    quickLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Add bounce effect
-            this.style.transform = 'translateY(-1px) scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 200);
-
-            // Add success indicator
-            const icon = this.querySelector('.quick-icon');
-            const originalIcon = icon.textContent;
-            icon.textContent = '✓';
-            icon.style.color = '#00ff88';
-            
-            setTimeout(() => {
-                icon.textContent = originalIcon;
-                icon.style.color = '';
-            }, 1500);
-
-            console.log('Quick link clicked:', this.href);
-        });
-    });
-
-    // Staggered entrance animation for links sections
-    function animateLinksPage() {
-        const sections = document.querySelectorAll('#page-links .links-section');
-        sections.forEach((section, index) => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            
-            setTimeout(() => {
-                section.style.transition = 'all 0.6s ease';
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
-            }, index * 150);
-        });
-    }
-
-    // Trigger animation when links page is shown
-    const linksNavBtn = document.querySelector('[data-page="links"]');
-    if (linksNavBtn) {
-        linksNavBtn.addEventListener('click', function() {
-            setTimeout(animateLinksPage, 100);
-        });
-    }
-
-    // Add search functionality for links
+    // Add simple search functionality for links
     function addLinksSearch() {
         const linksPage = document.getElementById('page-links');
         const title = linksPage.querySelector('.page-title');
@@ -361,33 +190,18 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create search input
         const searchContainer = document.createElement('div');
         searchContainer.style.cssText = `
-            margin-bottom: 25px;
-            text-align: center;
+            margin-bottom: 10px;
         `;
         
         const searchInput = document.createElement('input');
         searchInput.type = 'text';
-        searchInput.placeholder = 'Пошук посилань...';
+        searchInput.placeholder = 'Пошук...';
         searchInput.style.cssText = `
-            width: 100%;
-            max-width: 400px;
-            padding: 12px 20px;
-            border: 2px solid rgba(107, 115, 255, 0.2);
-            border-radius: 25px;
-            font-size: 16px;
-            outline: none;
-            transition: all 0.3s ease;
+            width: 200px;
+            padding: 5px 8px;
+            border: 1px solid #ccc;
+            font-size: 12px;
         `;
-        
-        searchInput.addEventListener('focus', function() {
-            this.style.borderColor = '#6b73ff';
-            this.style.boxShadow = '0 0 10px rgba(107, 115, 255, 0.2)';
-        });
-        
-        searchInput.addEventListener('blur', function() {
-            this.style.borderColor = 'rgba(107, 115, 255, 0.2)';
-            this.style.boxShadow = 'none';
-        });
         
         // Search functionality
         searchInput.addEventListener('input', function() {
@@ -396,19 +210,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             sections.forEach(section => {
                 const text = section.textContent.toLowerCase();
-                if (text.includes(query)) {
+                if (text.includes(query) || query === '') {
                     section.style.display = 'block';
-                    section.style.opacity = '1';
                 } else {
-                    section.style.opacity = '0.3';
+                    section.style.display = 'none';
                 }
             });
-            
-            if (query === '') {
-                sections.forEach(section => {
-                    section.style.opacity = '1';
-                });
-            }
         });
         
         searchContainer.appendChild(searchInput);
@@ -416,5 +223,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Add search when page loads
-    setTimeout(addLinksSearch, 500);
+    setTimeout(addLinksSearch, 100);
 });
